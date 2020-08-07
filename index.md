@@ -1,37 +1,130 @@
-## Welcome to GitHub Pages
+## Get it
 
-You can use the [editor on GitHub](https://github.com/FANMixco/Xamarin-MaterialSearchView/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+|  Package  |Latest Release|
+|:----------|:------------:|
+|**Xamarin-MaterialSearchView**|[![NuGet Badge Xamarin-MaterialSearchView](https://buildstats.info/nuget/Xamarin-MaterialSearchView)](https://www.nuget.org/packages/Xamarin-MaterialSearchView/)|
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Preview
 
-### Markdown
+![](https://raw.githubusercontent.com/MiguelCatalan/MaterialSearchView/master/art/voice.gif)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### **Basic example:**
 
-```markdown
-Syntax highlighted code block
+**XML:**
+**Layout:**
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@color/colorGray"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical">
+   <include layout="@layout/search_container" />
+</LinearLayout>
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**search_container.xml**
 
-### Jekyll Themes
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/toolbar_container"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/FANMixco/Xamarin-MaterialSearchView/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		android:background="@color/colorPrimary" />
 
-### Support or Contact
+	<com.miguelcatalan.materialsearchview.MaterialSearchView
+		android:id="@+id/search_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+</FrameLayout>
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+**Menu:**
+**menu_search.xml**
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context="com.domain.myApp.YourClassActivity">
+	<item
+		android:id="@+id/action_search"
+		android:icon="@drawable/ic_action_action_search"
+		android:orderInCategory="100"
+		android:title="@string/search_title"
+		app:showAsAction="always" />
+</menu>
+```
+
+**C#:**
+
+```csharp
+public partial class YourClassActivity : AppCompatActivity
+{
+	private MaterialSearchView SearchView;
+	protected override void OnCreate(Bundle savedInstanceState)
+	{
+
+		SearchView = FindViewById<MaterialSearchView>(Resource.Id.search_view);
+
+		SearchView.SetOnQueryTextListener(new MaterialSearchViewListener(this));
+
+		//Optional to enable voice search
+		//SearchView.SetVoiceSearch(true);        
+	}
+
+	public override bool OnCreateOptionsMenu(IMenu menu)
+	{
+		MenuInflater.Inflate(Resource.Menu.menu_search, menu);
+
+		SearchView.SetMenuItem(menu.FindItem(Resource.Id.action_search));
+
+		return true;
+	}
+}
+
+public partial class YourClassActivity
+{
+	public class MaterialSearchViewListener : Java.Lang.Object, MaterialSearchView.IOnQueryTextListener
+	{
+		public bool OnQueryTextChange(string p0)
+		{
+			return true;
+		}
+
+		public bool OnQueryTextSubmit(string p0)
+		{
+			return true;
+		}
+	}
+}
+```
+
+# Help me
+Pull requests are more than welcome, help me and others improve this awesome library.
+
+The code is based in the Krishnakapil original concept.
+
+# License
+	Copyright 2015-2020 Miguel Catalan Bañuls and Federico Navarrete
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
