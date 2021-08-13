@@ -1,3 +1,7 @@
+<a href="https://github.com/sponsors/FANMixco/" target="_blank">
+   <img src="https://raw.githubusercontent.com/FANMixco/Xamarin-SearchBar/master/bmc-rezr5vpd.gif" alt="sponsor" />
+</a>
+
 # Xamarin-MaterialSearchView
 Cute library to implement SearchView in a Material Design Approach for Xamarin.Android, based on Miguel Catalan's version.
 
