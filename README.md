@@ -117,7 +117,7 @@ public partial class YourClassActivity
 # Help me
 Pull requests are more than welcome, help me and others improve this awesome library.
 
-The code is based in the Krishnakapil original concept.
+The code is based on the Krishnakapil original concept.
 
 # License
 	Copyright 2015-2020 Miguel Catalan Bañuls and Federico Navarrete
