@@ -9,9 +9,9 @@ Cute library to implement SearchView in a Material Design Approach for Xamarin.A
 
 ## Get it
 
-|  Package  |Latest Release|
-|:----------|:------------:|
-|**Xamarin-MaterialSearchView**|[![NuGet Badge Xamarin-MaterialSearchView](https://buildstats.info/nuget/Xamarin-MaterialSearchView)](https://www.nuget.org/packages/Xamarin-MaterialSearchView/)|
+|Latest Release|Downloads|
+|:------------:|:------------:|
+|[![NuGet Badge Xamarin-MaterialSearchBar](https://img.shields.io/nuget/v/Xamarin-MaterialSearchView)](https://www.nuget.org/packages/Xamarin-MaterialSearchView/)|[![NuGet Badge SpotsDialog.Xamarin](https://img.shields.io/nuget/dt/Xamarin-MaterialSearchView)](https://www.nuget.org/packages/Xamarin-MaterialSearchView/)|
 
 ### **Basic example:**
 
